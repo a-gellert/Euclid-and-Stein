@@ -26,11 +26,30 @@ namespace EuclidAndStein
             InitializeComponent();
         }
 
-        private void calculate(object sender, RoutedEventArgs e)
+        private void Calculate(object sender, RoutedEventArgs e)
         {
-
-            int s = Solver.EuclidGCD(120, 24,32,80,40,20,16,104);
-            textBox1.Text = s.ToString();
+            string numberStr = textBox.Text;
+            int result;
+            double time;
+            if (radioButton.IsChecked == true)
+            {
+                result = Solver.EuclidGCD(numberStr, out time);
+                textBox1.Text = result.ToString();
+                textBox2.Text = time.ToString();
+            }
+            else
+            {
+                int[] num = Converter.ConvertToInt(numberStr);
+                if (num.Length >= 2)
+                {
+                    textBox.Text = $"{num[0]}, {num[1]}";
+                    result = Solver.SteinGCD(num[0], num[1],out time);
+                    textBox1.Text = result.ToString();
+                    textBox2.Text = time.ToString();
+                    return;
+                }
+                MessageBox.Show("Проверьте правильность введенных данных!");
+            }
         }
     }
 }

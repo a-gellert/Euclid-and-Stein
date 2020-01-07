@@ -3,48 +3,117 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace EuclidAndStein.Classes
 {
     public class Solver
     {
         private static int _result;
-        public static int EuclidGCD(int firstN, int secondN)
+        private static double _time;
+        public static int EuclidGCD(int firstN, int secondN, out double time)
         {
-            return Solver.GCD(firstN, secondN);
+            
+            using (Watcher.Start(t => _time = t.TotalMilliseconds ))
+            {
+                int result = Solver.GCD(firstN, secondN);
+                time = _time;
+                return result;
+            }
         }
 
-        public static int EuclidGCD(int firstN, int secondN, int thirdN)
+        public static int EuclidGCD(int firstN, int secondN, int thirdN, out double time)
         {
-            int[] array = { firstN, secondN, thirdN };
-
-            return Solver.Simpler(array);
+            using (Watcher.Start(t => _time = t.TotalMilliseconds))
+            {
+                int[] array = { firstN, secondN, thirdN };
+                int result = Solver.Simpler(array);
+                time = _time;
+                return result;
+            }
         }
 
-        public static int EuclidGCD(int firstN, int secondN, int thirdN, int fourthN)
+        public static int EuclidGCD(int firstN, int secondN, int thirdN, int fourthN, out double time)
         {
-            int[] array = { firstN, secondN, thirdN, fourthN };
-
-            return Solver.Simpler(array);
+            using (Watcher.Start(t => _time = t.TotalMilliseconds))
+            {
+                
+                int[] array = { firstN, secondN, thirdN, fourthN };
+                int result = Solver.Simpler(array);
+                time = _time;
+                return result;
+            }
         }
 
-        public static int EuclidGCD(int firstN, int secondN, int thirdN, int fourthN, int fifthN)
+        public static int EuclidGCD(int firstN, int secondN, int thirdN, int fourthN, int fifthN, out double time)
         {
-            int[] array = { firstN, secondN, thirdN, fourthN, fifthN };
-
-            return Solver.Simpler(array);
+            using (Watcher.Start(t => _time = t.TotalMilliseconds))
+            {
+               
+                int[] array = { firstN, secondN, thirdN, fourthN, fifthN };
+                int result = Solver.Simpler(array);
+                time = _time;
+                return result;
+            }
+        }
+        public static int EuclidGCD(string numbers, out double time)
+        {
+            using (Watcher.Start(t => _time = t.TotalMilliseconds))
+            {
+                int[] array = Converter.ConvertToInt(numbers);
+                int result = Solver.Simpler(array);
+                time = _time;
+                return result;
+            }
+        }
+        public static int EuclidGCD(out double time, params int[] numbers)
+        {
+            using (Watcher.Start(t => _time = t.TotalMilliseconds))
+            {
+                time = _time;
+                return Solver.Simpler(numbers);
+            }
         }
 
-        public static int EuclidGCD(params int[] numbers)
+        public static int SteinGCD(int firstN, int secondN, out double time)
         {
-            return Solver.Simpler(numbers);
+            using (Watcher.Start(t => _time = t.TotalMilliseconds))
+            {
+                
+                if (firstN == 0)
+                {   time = _time;
+                    return secondN;
+                }
+                if (secondN == 0)
+                {
+                    time = _time;
+                    return firstN;
+                }
+                int range;
+                for (range = 0; ((firstN | secondN) & 1) == 0; ++range)
+                {
+                    firstN >>= 1;
+                    secondN >>= 1;
+                }
+                while ((firstN & 1) == 0)
+                    firstN >>= 1;
+                do
+                {
+                    while ((secondN & 1) == 0)
+                        secondN >>= 1;
 
-        }
+                    if (firstN > secondN)
+                    {
+                        int temp = firstN;
+                        firstN = secondN;
+                        secondN = temp;
+                    }
+                    secondN = (secondN - firstN);
+                } while (secondN != 0);
+                time = _time;
+                return firstN << range;
 
-        public static int SteinGCD(int firstN, int secondN)
-        {
-            return 0;
-      
+            }
         }
 
         private static int GCD(int firstN, int secondN)
@@ -70,6 +139,7 @@ namespace EuclidAndStein.Classes
             for (int i = 0; i < numbers.Length - 1; i++)
             {
                 _result = Solver.GCD(numbers[i], numbers[i + 1]);
+                numbers[i + 1] = _result;
             }
             return _result;
         }

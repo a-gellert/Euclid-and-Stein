@@ -8,10 +8,14 @@
         Title="MainWindow" Height="450" Width="800" ResizeMode="CanMinimize">
     <Grid>
         <Label x:Name="label" Content="Введите значения через запятую&#xD;&#xA;" HorizontalAlignment="Left" Margin="10,80,0,0" VerticalAlignment="Top" FontSize="20" Height="37"/>
-        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="37" Margin="518,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" FontSize="20"/>
-        <Button x:Name="button" Content="Посчитать" HorizontalAlignment="Left" Margin="10,221,0,0" VerticalAlignment="Top" Width="266" FontSize="20" Height="36" Click="calculate"/>
+        <TextBox x:Name="textBox" HorizontalAlignment="Left" Height="37" Margin="502,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" FontSize="20"/>
+        <Button x:Name="button" Content="Посчитать" HorizontalAlignment="Left" Margin="10,221,0,0" VerticalAlignment="Top" Width="266" FontSize="20" Height="36" Click="Calculate"/>
         <Label x:Name="label1" Content="НОД = " HorizontalAlignment="Left" Margin="246,302,0,0" VerticalAlignment="Top" FontSize="20"/>
-        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="37" Margin="518,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" FontSize="20"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="37" Margin="502,302,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266" FontSize="20"/>
+        <RadioButton x:Name="radioButton" Content="Алгоритм Евклида" HorizontalAlignment="Left" Margin="10,166,0,0" VerticalAlignment="Top" IsChecked="True" FontSize="20"/>
+        <RadioButton x:Name="radioButton1" Content="Алгоритм Стейна(два числа)" HorizontalAlignment="Left" Margin="327,166,0,0" VerticalAlignment="Top" FontSize="20"/>
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="34" Margin="502,364,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="266"/>
+        <Label x:Name="label2" Content="Затраченное время" HorizontalAlignment="Left" Margin="10,371,0,0" VerticalAlignment="Top" FontSize="20"/>
 
     </Grid>
 </Window>
