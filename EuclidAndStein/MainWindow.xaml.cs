@@ -30,12 +30,11 @@ namespace EuclidAndStein
         {
             string numberStr = textBox.Text;
             int result;
-            double time;
             if (radioButton.IsChecked == true)
             {
-                result = Solver.EuclidGCD(numberStr, out time);
+                result = Solver.EuclidGCD(numberStr);
                 textBox1.Text = result.ToString();
-                textBox2.Text = time.ToString();
+                textBox2.Text = Solver.Time.ToString();
             }
             else
             {
@@ -43,9 +42,9 @@ namespace EuclidAndStein
                 if (num.Length >= 2)
                 {
                     textBox.Text = $"{num[0]}, {num[1]}";
-                    result = Solver.SteinGCD(num[0], num[1],out time);
+                    result = Solver.SteinGCD(num[0], num[1]);
                     textBox1.Text = result.ToString();
-                    textBox2.Text = time.ToString();
+                    textBox2.Text = Solver.Time.ToString();
                     return;
                 }
                 MessageBox.Show("Проверьте правильность введенных данных!");

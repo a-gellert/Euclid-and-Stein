@@ -10,83 +10,77 @@ namespace EuclidAndStein.Classes
     public class Solver
     {
         private static int _result;
-        private static double _time;
-        public static int EuclidGCD(int firstN, int secondN, out double time)
+        public static double Time { get; set; }
+
+        public static int EuclidGCD(int firstN, int secondN)
         {
             
-            using (Watcher.Start(t => _time = t.TotalMilliseconds ))
+            using (Watcher.Start(t => Time = t.TotalMilliseconds ))
             {
                 int result = Solver.GCD(firstN, secondN);
-                time = _time;
                 return result;
             }
         }
 
-        public static int EuclidGCD(int firstN, int secondN, int thirdN, out double time)
+        public static int EuclidGCD(int firstN, int secondN, int thirdN)
         {
-            using (Watcher.Start(t => _time = t.TotalMilliseconds))
+            using (Watcher.Start(t => Time = t.TotalMilliseconds))
             {
                 int[] array = { firstN, secondN, thirdN };
                 int result = Solver.Simpler(array);
-                time = _time;
                 return result;
             }
         }
 
-        public static int EuclidGCD(int firstN, int secondN, int thirdN, int fourthN, out double time)
+        public static int EuclidGCD(int firstN, int secondN, int thirdN, int fourthN)
         {
-            using (Watcher.Start(t => _time = t.TotalMilliseconds))
+            using (Watcher.Start(t => Time = t.TotalMilliseconds))
             {
                 
                 int[] array = { firstN, secondN, thirdN, fourthN };
                 int result = Solver.Simpler(array);
-                time = _time;
                 return result;
             }
         }
 
-        public static int EuclidGCD(int firstN, int secondN, int thirdN, int fourthN, int fifthN, out double time)
+        public static int EuclidGCD(int firstN, int secondN, int thirdN, int fourthN, int fifthN)
         {
-            using (Watcher.Start(t => _time = t.TotalMilliseconds))
+            using (Watcher.Start(t => Time = t.TotalMilliseconds))
             {
                
                 int[] array = { firstN, secondN, thirdN, fourthN, fifthN };
                 int result = Solver.Simpler(array);
-                time = _time;
                 return result;
             }
         }
-        public static int EuclidGCD(string numbers, out double time)
+        public static int EuclidGCD(string numbers)
         {
-            using (Watcher.Start(t => _time = t.TotalMilliseconds))
+            using (Watcher.Start(t => Time = t.TotalMilliseconds))
             {
                 int[] array = Converter.ConvertToInt(numbers);
                 int result = Solver.Simpler(array);
-                time = _time;
                 return result;
             }
         }
-        public static int EuclidGCD(out double time, params int[] numbers)
+        public static int EuclidGCD( params int[] numbers)
         {
-            using (Watcher.Start(t => _time = t.TotalMilliseconds))
+            using (Watcher.Start(t => Time = t.TotalMilliseconds))
             {
-                time = _time;
                 return Solver.Simpler(numbers);
             }
         }
 
-        public static int SteinGCD(int firstN, int secondN, out double time)
+        public static int SteinGCD(int firstN, int secondN)
         {
-            using (Watcher.Start(t => _time = t.TotalMilliseconds))
+            using (Watcher.Start(t => Time = t.TotalMilliseconds))
             {
                 
                 if (firstN == 0)
-                {   time = _time;
+                { 
                     return secondN;
                 }
                 if (secondN == 0)
                 {
-                    time = _time;
                     return firstN;
                 }
                 int range;
@@ -110,7 +104,6 @@ namespace EuclidAndStein.Classes
                     }
                     secondN = (secondN - firstN);
                 } while (secondN != 0);
-                time = _time;
                 return firstN << range;
 
             }
