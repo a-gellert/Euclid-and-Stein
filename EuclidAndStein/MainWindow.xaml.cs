@@ -30,7 +30,7 @@ namespace EuclidAndStein
         {
             string numberStr = textBox.Text;
             int result;
-            if (radioButton.IsChecked == true)
+            if (radioButton.IsChecked.Value)
             {
                 result = Solver.EuclidGCD(numberStr);
                 textBox1.Text = result.ToString();

@@ -5,10 +5,10 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace EuclidAndStein.Tests
 {
     [TestClass]
-    public class UnitTest1
+    public class EuclidAndSteinTest
     {
         [TestMethod]
-        public void Euclid_GCD_Is_Equal_Two()
+        public void EuclidGCD_Returns_Two()
         {
             // Act
             var actual = Solver.EuclidGCD(2, 4);
@@ -19,7 +19,7 @@ namespace EuclidAndStein.Tests
         }
 
         [TestMethod]
-        public void Stein_GCD_Is_Equal_Two()
+        public void SteinGCD_Returns_Two()
         {
             // Act
             var actual = Solver.SteinGCD(2, 4);
@@ -30,7 +30,7 @@ namespace EuclidAndStein.Tests
         }
 
         [TestMethod]
-        public void Converter_Returns_One()
+        public void ConvertToInt_Returns_One()
         {
             // Act
             var actual = Converter.ConvertToInt("1");

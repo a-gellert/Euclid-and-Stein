@@ -12,10 +12,6 @@ namespace EuclidAndStein.Classes
         {
             char[] delimiterChars = { ',' };
 
-            return Parsing(str, delimiterChars);
-        }
-        private static int[] Parsing(string str, char[] delimiterChars)
-        {
             string[] strNumbers = str.Split(delimiterChars);
             int[] numbers = new int[strNumbers.Length];
 

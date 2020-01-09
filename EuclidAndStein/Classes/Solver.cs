@@ -21,38 +21,6 @@ namespace EuclidAndStein.Classes
                 return result;
             }
         }
-
-        public static int EuclidGCD(int firstN, int secondN, int thirdN)
-        {
-            using (Watcher.Start(t => Time = t.TotalMilliseconds))
-            {
-                int[] array = { firstN, secondN, thirdN };
-                int result = Solver.Simpler(array);
-                return result;
-            }
-        }
-
-        public static int EuclidGCD(int firstN, int secondN, int thirdN, int fourthN)
-        {
-            using (Watcher.Start(t => Time = t.TotalMilliseconds))
-            {
-                
-                int[] array = { firstN, secondN, thirdN, fourthN };
-                int result = Solver.Simpler(array);
-                return result;
-            }
-        }
-
-        public static int EuclidGCD(int firstN, int secondN, int thirdN, int fourthN, int fifthN)
-        {
-            using (Watcher.Start(t => Time = t.TotalMilliseconds))
-            {
-               
-                int[] array = { firstN, secondN, thirdN, fourthN, fifthN };
-                int result = Solver.Simpler(array);
-                return result;
-            }
-        }
         public static int EuclidGCD(string numbers)
         {
             using (Watcher.Start(t => Time = t.TotalMilliseconds))
