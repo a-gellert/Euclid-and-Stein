@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace EuclidAndStein.Classes
 {
+    //В первое нахождение НОД, время выполнения достигает почти секунду, не понимаю в чём проблема 
     public class Watcher : IDisposable
     {
         private Action<TimeSpan> _action;
